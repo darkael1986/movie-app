@@ -1,0 +1,24 @@
+{
+  "name": "movie",
+  "version": "1.0.0",
+  "description": "App for search and watch the best movies",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkael1986/movie-app.git"
+  },
+  "keywords": [
+    "Js",
+    "javaScript"
+  ],
+  "author": "Rosalini Samuel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darkael1986/movie-app/issues"
+  },
+  "homepage": "https://github.com/darkael1986/movie-app#readme"
+ 
+}
