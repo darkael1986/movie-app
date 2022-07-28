@@ -10,8 +10,6 @@ const api = axios.create({
     },
 });
 
-
-
 //funcion peliculas en tendencia
 
 //  async function getTrendingMoviesPreviewe (){
@@ -58,8 +56,6 @@ async function getTrendingMoviesPreviewe (){
         movieTrendingSection.appendChild(movieContainer);
     });
 }
-
-
 
 //funcion listar categorias peliculas
 
@@ -109,5 +105,3 @@ async function getCategoriesMoviesPreview(){
 }
 
 
-getTrendingMoviesPreviewe();
-getCategoriesMoviesPreview();
