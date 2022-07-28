@@ -41,9 +41,9 @@ async function getTrendingMoviesPreviewe (){
 
     const movies = data.results;
     console.log(movies);
+    trendingMoviesPreviewList.innerHTML = "";
 
     movies.forEach(movie => {
-        const movieTrendingSection = document.querySelector('#trendingPreview .trendingPreview-movieList');
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-container');
 
@@ -53,7 +53,7 @@ async function getTrendingMoviesPreviewe (){
         movieImg.setAttribute('src','https://image.tmdb.org/t/p/w300/'+ movie.poster_path);
 
         movieContainer.appendChild(movieImg);
-        movieTrendingSection.appendChild(movieContainer);
+        trendingMoviesPreviewList.appendChild(movieContainer);
     });
 }
 
@@ -87,9 +87,9 @@ async function getCategoriesMoviesPreview(){
     const { data } = await api ('genre/movie/list');
 
     const categories = data.genres;
-    
+    categorySection.innerHTML = "";
+
     categories.forEach(category => {
-        const categorySection = document.querySelector('#categoriesPreview .categoriesPreview-list');
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-container');
 
