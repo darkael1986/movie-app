@@ -1,5 +1,6 @@
-searchFormBtn.addEventListener('click', ()=> {
-    location.hash ='#search=';
+
+searchFormBtn.addEventListener('click', ()=> { 
+    location.hash ='#search='+searchFormInput.value;
 });
 
 trendingBtn.addEventListener('click', ()=>{
@@ -7,7 +8,7 @@ trendingBtn.addEventListener('click', ()=>{
 })
 
 arrowBtn.addEventListener('click', ()=>{
-    location.hash = "#home";
+    location.hash = window.history.back();
 })
 
 
@@ -27,7 +28,7 @@ function navigator(){
     categoryPage();
     }else {homePage()}   
 
-    location.hash
+    document.documentElement.scrollTop = 0;
 }
 
 //vistas
@@ -78,13 +79,18 @@ function searchPage(){
     arrowBtn.classList.remove('inactive');
     arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
-    headerCategoryTitle.classList.remove('inactive');
+    headerCategoryTitle.classList.add('inactive');
     searchForm.classList.remove('inactive');
 
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+
+    const [_, query] = location.hash.split('=');
+    
+    getMoviesBySearch(query)
+
 
     console.log('SEARCH');
 }
@@ -112,7 +118,7 @@ function categoryPage(){
     headerSection.classList.remove('header-container--long');
     headerSection.style.background = '';
     arrowBtn.classList.remove('inactive');
-    arrowBtn.classList.remo('header-arrow--white');
+    arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.remove('inactive');
     searchForm.classList.add('inactive');
@@ -122,5 +128,11 @@ function categoryPage(){
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    const [_, categoryData] = location.hash.split('=');
+    const [categoryId, categoryName] = categoryData.split('-');
+
+    headerCategoryTitle.innerHTML=categoryName;
+    
+    getMoviesByCategories(categoryId);
     console.log('CATEGORIES');
 }
