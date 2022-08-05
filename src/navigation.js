@@ -67,6 +67,9 @@ function trendsPage(){
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    headerCategoryTitle.innerHTML='Tendencias';
+
+    getTrendingMovies();
     console.log('TRENDS');
 
 
@@ -109,6 +112,10 @@ function moviePage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
+
+    const [_, movieId] = location.hash.split('=');
+    
+    getMovieById(movieId)
 
     console.log('MOVIE');
 }
